@@ -1,14 +1,14 @@
 import discord
 from discord.ext import tasks
 import datetime
-import os # AJOUT N°1 : Importation du module os pour les variables d'environnement
+import os # Importation du module os pour les variables d'environnement
 
 # --- ⚠️ CONFIGURATION ESSENTIELLE À MODIFIER (TOKEN SÉCURISÉ) ⚠️ ---
 # 1. Le Token n'est PLUS ici. Il sera lu depuis la variable d'environnement DISCORD_TOKEN
-TOKEN = os.getenv("DISCORD_TOKEN") 
+TOKEN = os.getenv("DISCORD_TOKEN")
 
 # 2. L'ID du salon où le rappel doit être envoyé
-CHANNEL_ID = 1272611563307794484 
+CHANNEL_ID = 1272611563307794484
 
 # 3. Le message de RAPPEL avec la mention @here
 BUMP_COMMAND = "🚨 @here Il est temps de faire le /bump ! Tapez la commande pour relancer le timer."
@@ -23,7 +23,7 @@ client = discord.Client(intents=intents)
 # --- TÂCHE RÉCURRENTE (Toutes les 3 heures) ---
 @tasks.loop(hours=3)
 async def auto_bump():
-    """Tâche qui envoie le message de rappel toutes les 2 heures."""
+    """Tâche qui envoie le message de rappel toutes les 3 heures."""
     
     # Attend que le bot soit pleinement connecté et prêt
     await client.wait_until_ready()

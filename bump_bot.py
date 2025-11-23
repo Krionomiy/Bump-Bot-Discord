@@ -21,7 +21,7 @@ intents.message_content = True
 client = discord.Client(intents=intents)
 
 # --- TÂCHE RÉCURRENTE (Toutes les 2 heures) ---
-@tasks.loop(hours=2)
+@tasks.loop(hours=3)
 async def auto_bump():
     """Tâche qui envoie le message de rappel toutes les 2 heures."""
     
